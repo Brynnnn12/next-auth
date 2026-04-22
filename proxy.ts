@@ -15,5 +15,5 @@ export async function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/dashboard/:path*"], // Melindungi seluruh rute di rute utama dan anak-anak dari /dashboard
+  matcher: ["/dashboard/:path*"],
 };

@@ -18,7 +18,6 @@ import { useRouter } from "next/navigation"
 import * as z from "zod"
 import Link from "next/link"
 
-// Schema dengan pesan error custom
 const SignupFormSchema = z.object({
   name: z.string().min(2, "Nama minimal 2 karakter"),
   email: z.string().email("Email tidak valid"),
@@ -48,7 +47,6 @@ export function SignupForm({
 
   const onSubmit = async (data: SignupFormValues) => {
     try {
-      // First, create the account
       const signupResult = await authClient.signUp.email({
         email: data.email,
         password: data.password,
@@ -106,102 +104,100 @@ export function SignupForm({
       onSubmit={form.handleSubmit(onSubmit)}
     >
       <FieldGroup>
-        <div className="flex flex-col items-center gap-1 text-center">
+        <div className="flex flex-col items-center gap-1 text-center mb-2">
           <h1 className="text-2xl font-bold">Buat akun Anda</h1>
           <p className="text-sm text-balance text-muted-foreground">
-            Isi formulir di bawah untuk membuat akun
+            Isi formulir di bawah untuk membuat akun baru
           </p>
         </div>
 
-        {/* Name Field dengan Controller */}
-        <Controller
-          name="name"
-          control={form.control}
-          render={({ field, fieldState }) => (
-            <Field data-invalid={fieldState.invalid}>
-              <FieldLabel htmlFor="name">Nama Lengkap</FieldLabel>
-              <Input
-                {...field}
-                id="name"
-                type="text"
-                placeholder="John Doe"
-                aria-invalid={fieldState.invalid}
-              />
-              {fieldState.invalid && (
-                <FieldError errors={[fieldState.error]} />
-              )}
-            </Field>
-          )}
-        />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {/* Name Field dengan Controller */}
+          <Controller
+            name="name"
+            control={form.control}
+            render={({ field, fieldState }) => (
+              <Field data-invalid={fieldState.invalid} className="w-full">
+                <FieldLabel htmlFor="name">Nama Lengkap</FieldLabel>
+                <Input
+                  {...field}
+                  id="name"
+                  type="text"
+                  placeholder="John Doe"
+                  aria-invalid={fieldState.invalid}
+                />
+                {fieldState.invalid && (
+                  <FieldError errors={[fieldState.error]} />
+                )}
+              </Field>
+            )}
+          />
 
-        {/* Email Field dengan Controller */}
-        <Controller
-          name="email"
-          control={form.control}
-          render={({ field, fieldState }) => (
-            <Field data-invalid={fieldState.invalid}>
-              <FieldLabel htmlFor="email">Email</FieldLabel>
-              <Input
-                {...field}
-                id="email"
-                type="email"
-                placeholder="m@example.com"
-                aria-invalid={fieldState.invalid}
-              />
-              <FieldDescription>
-                We&apos;ll use this to contact you. We will not share your email
-                with anyone else.
-              </FieldDescription>
-              {fieldState.invalid && (
-                <FieldError errors={[fieldState.error]} />
-              )}
-            </Field>
-          )}
-        />
+          {/* Email Field dengan Controller */}
+          <Controller
+            name="email"
+            control={form.control}
+            render={({ field, fieldState }) => (
+              <Field data-invalid={fieldState.invalid} className="w-full">
+                <FieldLabel htmlFor="email">Email</FieldLabel>
+                <Input
+                  {...field}
+                  id="email"
+                  type="email"
+                  placeholder="m@example.com"
+                  aria-invalid={fieldState.invalid}
+                />
+                {fieldState.invalid && (
+                  <FieldError errors={[fieldState.error]} />
+                )}
+              </Field>
+            )}
+          />
+        </div>
 
-        {/* Password Field dengan Controller */}
-        <Controller
-          name="password"
-          control={form.control}
-          render={({ field, fieldState }) => (
-            <Field data-invalid={fieldState.invalid}>
-              <FieldLabel htmlFor="password">Password</FieldLabel>
-              <Input
-                {...field}
-                id="password"
-                type="password"
-                aria-invalid={fieldState.invalid}
-              />
-              <FieldDescription>
-                Minimal 8 karakter.
-              </FieldDescription>
-              {fieldState.invalid && (
-                <FieldError errors={[fieldState.error]} />
-              )}
-            </Field>
-          )}
-        />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {/* Password Field dengan Controller */}
+          <Controller
+            name="password"
+            control={form.control}
+            render={({ field, fieldState }) => (
+              <Field data-invalid={fieldState.invalid} className="w-full">
+                <FieldLabel htmlFor="password">Password</FieldLabel>
+                <Input
+                  {...field}
+                  id="password"
+                  type="password"
+                  placeholder="••••••••"
+                  aria-invalid={fieldState.invalid}
+                />
+                {fieldState.invalid && (
+                  <FieldError errors={[fieldState.error]} />
+                )}
+              </Field>
+            )}
+          />
 
-        {/* Confirm Password Field dengan Controller */}
-        <Controller
-          name="confirmPassword"
-          control={form.control}
-          render={({ field, fieldState }) => (
-            <Field data-invalid={fieldState.invalid}>
-              <FieldLabel htmlFor="confirm-password">Konfirmasi Kata Sandi</FieldLabel>
-              <Input
-                {...field}
-                id="confirm-password"
-                type="password"
-                aria-invalid={fieldState.invalid}
-              />
-              <FieldDescription>Harap konfirmasi kata sandi Anda.</FieldDescription>
-              {fieldState.invalid && (
-                <FieldError errors={[fieldState.error]} />
-              )}
-            </Field>
-          )}
-        />
+          {/* Confirm Password Field dengan Controller */}
+          <Controller
+            name="confirmPassword"
+            control={form.control}
+            render={({ field, fieldState }) => (
+              <Field data-invalid={fieldState.invalid} className="w-full">
+                <FieldLabel htmlFor="confirm-password">Konfirmasi Sandi</FieldLabel>
+                <Input
+                  {...field}
+                  id="confirm-password"
+                  type="password"
+                  placeholder="••••••••"
+                  aria-invalid={fieldState.invalid}
+                />
+                {fieldState.invalid && (
+                  <FieldError errors={[fieldState.error]} />
+                )}
+              </Field>
+            )}
+          />
+        </div>
 
         {/* Submit Button */}
         <Field>

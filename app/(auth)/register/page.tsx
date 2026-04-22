@@ -1,5 +1,6 @@
 import { SignupForm } from "@/components/auth/signup-form"
 import { GalleryVerticalEnd } from "lucide-react"
+import Image from "next/image"
 
 
 export default function SignupPage() {
@@ -11,7 +12,7 @@ export default function SignupPage() {
             <div className="flex size-6 items-center justify-center rounded-md bg-primary text-primary-foreground">
               <GalleryVerticalEnd className="size-4" />
             </div>
-            Acme Inc.
+            NB Auth
           </a>
         </div>
         <div className="flex flex-1 items-center justify-center">
@@ -21,9 +22,7 @@ export default function SignupPage() {
         </div>
       </div>
       <div className="relative hidden bg-muted lg:block">
-        <div className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale">
-
-        </div>
+        <Image src="/image.jpg" alt="Login Illustration" fill className="object-cover" />
       </div>
     </div>
   )
