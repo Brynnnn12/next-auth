@@ -14,7 +14,7 @@ import { UserProfileMenu } from "@/components/user-profile-menu"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { authClient } from "@/lib/auth-client"
-import { Mail, User, ShieldCheck, MapPin, CalendarDays, Edit3 } from "lucide-react"
+import { Mail, User, ShieldCheck, CalendarDays, Edit3 } from "lucide-react"
 import ProfileLoading from "./loading"
 
 export default function ProfilePage() {
@@ -26,7 +26,7 @@ export default function ProfilePage() {
 
   return (
     <>
-      <header className="flex h-16 shrink-0 justify-between items-center gap-2 border-b px-4 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-10">
+      <header className="flex h-16 shrink-0 justify-between items-center gap-2 border-b px-4 bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60 sticky top-0 z-10">
         <div className="flex items-center gap-2">
           <SidebarTrigger className="-ml-1" />
           <Separator orientation="vertical" className="mr-2 h-4" />
@@ -57,8 +57,8 @@ export default function ProfilePage() {
           {session ? (
             <>
               {/* Banner Area */}
-              <div className="h-32 md:h-48 w-full bg-gradient-to-r from-primary/20 via-primary/10 to-primary/30 relative">
-                <div className="absolute inset-0 bg-grid-white/10 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0))] dark:bg-grid-black/10" />
+              <div className="h-32 md:h-48 w-full bg-linear-to-r from-primary/20 via-primary/10 to-primary/30 relative">
+                <div className="absolute inset-0 bg-grid-white/10 mask-[linear-gradient(0deg,white,rgba(255,255,255,0))] dark:bg-grid-black/10" />
               </div>
 
               {/* Profile Main Info */}
@@ -161,7 +161,7 @@ export default function ProfilePage() {
               </div>
             </>
           ) : (
-            <div className="p-12 pl-12 text-center text-muted-foreground flex flex-col items-center justify-center min-h-[400px]">
+            <div className="p-12 pl-12 text-center text-muted-foreground flex flex-col items-center justify-center min-h-100">
               <User className="h-12 w-12 mb-4 opacity-20" />
               <p>Tidak dapat memuat sesi pengguna.</p>
             </div>

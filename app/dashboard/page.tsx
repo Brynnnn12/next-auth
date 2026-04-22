@@ -10,6 +10,7 @@ import { Separator } from "@/components/ui/separator"
 import { SidebarTrigger } from "@/components/ui/sidebar"
 import { UserProfileMenu } from "@/components/user-profile-menu"
 
+
 export default function Page() {
   return (
     <>

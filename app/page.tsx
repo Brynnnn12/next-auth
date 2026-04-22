@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className="flex min-h-screen flex-col font-sans">
       {/* Navbar */}
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
         <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-8">
           <div className="flex items-center gap-2">
             <ShieldCheck className="size-6 text-primary" />
@@ -40,7 +40,7 @@ export default function Home() {
         {/* Hero Section */}
         <section className="w-full py-20 lg:py-32 xl:py-40">
           <div className="container mx-auto px-4 md:px-8 text-center">
-            <div className="mx-auto flex max-w-[58rem] flex-col items-center gap-6">
+            <div className="mx-auto flex max-w-232 flex-col items-center gap-6">
               <div className="inline-flex items-center rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
                 <span className="flex size-2 rounded-full bg-primary mr-2 animate-pulse"></span>
                 Ready to use Template
@@ -49,7 +49,7 @@ export default function Home() {
                 Secure Authentication for <br className="hidden sm:inline" />
                 <span className="text-primary">Next.js Applications</span>
               </h1>
-              <p className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
+              <p className="max-w-2xl leading-normal text-muted-foreground sm:text-xl sm:leading-8">
                 A complete, production-ready authentication system built with Next.js 16, 
                 Better Auth, Drizzle ORM, and Shadcn UI.
               </p>
@@ -75,14 +75,14 @@ export default function Home() {
         {/* Features / About Section */}
         <section id="about" className="w-full bg-muted/50 py-16 lg:py-24">
           <div className="container mx-auto px-4 md:px-8">
-            <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center mb-12">
+            <div className="mx-auto flex max-w-232 flex-col items-center space-y-4 text-center mb-12">
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Modern Tech Stack</h2>
               <p className="max-w-[85%] text-muted-foreground sm:text-lg">
                 Everything you need to kickstart your next project with a solid authentication foundation.
               </p>
             </div>
             
-            <div className="mx-auto grid justify-center gap-8 sm:grid-cols-2 md:max-w-[64rem] lg:grid-cols-3">
+            <div className="mx-auto grid justify-center gap-8 sm:grid-cols-2 md:max-w-5xl lg:grid-cols-3">
               <div className="relative overflow-hidden rounded-lg border bg-background p-6 shadow-sm transition-shadow hover:shadow-md">
                 <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 mb-4">
                   <Lock className="size-6 text-primary" />
